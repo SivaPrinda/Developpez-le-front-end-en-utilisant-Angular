@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+h1 {
+  background-color: #418791;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1.5em;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.stat-box {
+  border: 2px solid #418791;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.stat-title {
+  display: block;
+  font-size: 1em;
+  color: #6c757d;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+/* Media queries for additional responsiveness */
+@media (max-width: 767.98px) {
+  .stat-box {
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .stat-box {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .stat-box {
+    margin-bottom: 30px;
+  }
+}
+
+ngx-charts-pie-chart svg {
+  width: 100% !important;
+  height: auto !important;
+}
+.ngx-charts-tooltip-content {
+  background-color: #418791 !important;
+  color: white !important;
+}

@@ -29,4 +29,21 @@ export class OlympicService {
   getOlympics() {
     return this.olympics$.asObservable();
   }
+
+
+  /**
+   * Returns the total number of medals for a chosen country
+   *
+   * @param olympic - The chosen country
+   * @returns The addition of all numbers of medals for that country
+   */
+  countMedals(olympic: Olympic): number {
+    let medals: number = 0;
+
+    for (let participation of olympic.participations) {
+      medals += participation.medalsCount;
+    }
+    return medals;
+  }
+
 }

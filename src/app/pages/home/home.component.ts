@@ -10,10 +10,35 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 })
 export class HomeComponent implements OnInit {
   public olympics$: Observable<Olympic[]> = of([]);
+  public data: { name: string; value: number }[] = [];
+
+  view!: [number, number];
+  showLegend!: boolean;
+  showLabels!: boolean;
+  gradient!: boolean;
+  isDoughnut!: boolean;
+  colorScheme!: string;
 
   constructor(private olympicService: OlympicService) {}
 
+  /*Configuration of the pie chart value*/
+  chartConfig(): void {
+    this.view = [700, 400];
+    this.showLegend = true;
+    this.showLabels = true;
+    this.gradient = false;
+    this.isDoughnut = false;
+    this.colorScheme = 'cool';
+  }
+
   ngOnInit(): void {
+    this.chartConfig();
     this.olympics$ = this.olympicService.getOlympics();
+    this.olympics$.subscribe((value: Array<Olympic>) => {
+      this.data = value.map((olympic) => ({
+        name: olympic.country,
+        value: this.olympicService.countMedals(olympic),
+      }));
+    });
   }
 }
