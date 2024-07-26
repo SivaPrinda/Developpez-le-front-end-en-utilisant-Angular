@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 h1 {
   background-color: #418791;
   color: white !important;
@@ -10,12 +9,26 @@ h1 {
   display: inline-block;
   margin-top: 20px;
 }
+.title-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.stats-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
 .stat-box {
   border: 2px solid #418791;
   border-radius: 10px;
   padding: 20px;
   background-color: #ffffff;
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
 }
 
 .stat-title {
@@ -34,8 +47,29 @@ h1 {
   text-align: center;
 }
 
+.chart-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+ngx-charts-pie-chart svg {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.ngx-charts-tooltip-content {
+  background-color: #418791 !important;
+  color: white !important;
+}
+
 /* Media queries for additional responsiveness */
 @media (max-width: 767.98px) {
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .stat-box {
     margin-bottom: 15px;
   }
@@ -51,13 +85,4 @@ h1 {
   .stat-box {
     margin-bottom: 30px;
   }
-}
-
-ngx-charts-pie-chart svg {
-  width: 100% !important;
-  height: auto !important;
-}
-.ngx-charts-tooltip-content {
-  background-color: #418791 !important;
-  color: white !important;
 }
