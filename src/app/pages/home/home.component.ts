@@ -11,6 +11,7 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 export class HomeComponent implements OnInit {
   public olympics$: Observable<Olympic[]> = of([]);
   public data: { name: string; value: number }[] = [];
+  public josNumber: Set<string> = new Set();
 
   view!: [number, number];
   showLegend!: boolean;
@@ -35,10 +36,17 @@ export class HomeComponent implements OnInit {
     this.chartConfig();
     this.olympics$ = this.olympicService.getOlympics();
     this.olympics$.subscribe((value: Array<Olympic>) => {
+      //preparation for the data of the pie chart
       this.data = value.map((olympic) => ({
         name: olympic.country,
         value: this.olympicService.countMedals(olympic),
       }));
+      //Calculate the number of JOs
+      value.forEach((olympic) => {
+        olympic.participations.forEach((participation) => {
+          this.josNumber.add(participation.id);
+        });
+      });
     });
   }
 }
