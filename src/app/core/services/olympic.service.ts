@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Olympic } from '../models/Olympic';
 
 @Injectable({
@@ -30,6 +30,12 @@ export class OlympicService {
     return this.olympics$.asObservable();
   }
 
+  getOlympicByCountry(country: string) {
+    // filter countries on specified country in argument
+    return this.getOlympics().pipe(
+      map((olympics) => olympics.find((olympic) => olympic.country === country))
+    );
+  }
 
   /**
    * Returns the total number of medals for a chosen country
@@ -45,5 +51,4 @@ export class OlympicService {
     }
     return medals;
   }
-
 }

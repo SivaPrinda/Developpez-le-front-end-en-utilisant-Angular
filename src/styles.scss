@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 calc(50vw - 400px);
+}
+
 h1 {
   background-color: #418791;
   color: white !important;
@@ -19,6 +26,20 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: min(100px, 50%);
 }
 
 .stat-box {
@@ -51,6 +72,28 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+}
+
+.chart-wrapper {
+  height: 400px;
+  width: min(800px, 100%);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.retour-button {
+  background-color: #418791;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 ngx-charts-pie-chart svg {

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="title-container">
+    <h1>{{ olympicCountry }}</h1>
+  </div>
+  <div class="stats-container">
+    <div class="stat-box">
+      <span class="stat-title">Number of entries</span>
+      <span class="stat-value">{{ numberOfEntries }}</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-title">Total number medals</span>
+      <span class="stat-value">{{ totalMedalCount }}</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-title">Total number of athletes</span>
+      <span class="stat-value">{{totalAthleteNumber}}</span>
+    </div>
+  </div>
+  <div class="chart-wrapper">
+    <ngx-charts-line-chart
+      [gradient]="false"
+      [xAxis]="true"
+      [yAxis]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      xAxisLabel="Years"
+      yAxisLabel="Medals"
+      [results]="graphDataChart"
+    >
+    </ngx-charts-line-chart>
+  </div>
+  <div class="button-container">
+    <button class="retour-button" onclick="history.back()">Retour</button>
+  </div>
+</div>

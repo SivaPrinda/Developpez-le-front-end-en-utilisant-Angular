@@ -1,4 +1,4 @@
-<main>
+<div class="container">
   <div class="title-container">
     <h1>Medals per Country</h1>
   </div>
@@ -12,15 +12,13 @@
       <span class="stat-value">{{ data.length }}</span>
     </div>
   </div>
-  <div class="chart-container">
+  <div class="chart-wrapper">
     <ngx-charts-pie-chart
-      [view]="view"
-      [scheme]="colorScheme"
       [results]="data"
-      [gradient]="gradient"
-      [labels]="showLabels"
-      [doughnut]="isDoughnut"
-    >
+      [gradient]="false"
+      [labels]="true"
+      [doughnut]="false"
+      (select)="onSelect($event)"
     </ngx-charts-pie-chart>
   </div>
-</main>
+</div>
