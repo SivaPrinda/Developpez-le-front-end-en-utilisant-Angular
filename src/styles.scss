@@ -16,6 +16,17 @@ h1 {
   display: inline-block;
   margin-top: 20px;
 }
+.title-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.stats-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
 .title-container {
   display: flex;

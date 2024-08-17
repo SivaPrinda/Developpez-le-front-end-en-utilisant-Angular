@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public data: { name: string; value: number }[] = [];
+
   public josNumber: Set<number> = new Set();
   private olympicsSubscription: Subscription | undefined;
-
   constructor(private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
@@ -39,10 +39,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.olympicsSubscription?.unsubscribe();
   }
 
-  /*
-  
-  */
   onSelect(event: any): void {
     this.router.navigateByUrl(`/detail/${event.name}`);
+
   }
 }
