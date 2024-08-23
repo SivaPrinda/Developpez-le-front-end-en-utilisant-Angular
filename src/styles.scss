@@ -44,7 +44,7 @@ h1 {
 .stat-box {
   border: 2px solid #418791; /* Border with a specified color */
   border-radius: 10px; /* Rounded corners */
-  padding: 20px; /* Internal spacing */
+  padding: 0.4rem; /* Internal spacing */
   background-color: #ffffff; /* White background */
   flex: 1; /* Allows the element to grow to fill available space */
   width: min(
@@ -73,7 +73,7 @@ h1 {
 
 /* Wrapper for charts */
 .chart-wrapper {
-  height: 20rem;
+  height: 24rem;
   width: min(
     800px,
     100%
