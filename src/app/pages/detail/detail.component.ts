@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, map} from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 
 @Component({
@@ -23,28 +23,28 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.olympicCountry = this.route.snapshot.params['country'];
-
+    // Data preparation for the details page
     if (this.olympicCountry) {
       this.olympicsSubscription = this.olympicService
         .getOlympicByCountry(this.olympicCountry)
         .pipe(
           map((olympic) => {
             if (olympic) {
-              // number of participations
+              // Number of participations
               this.numberOfEntries = olympic.participations.length;
 
-              // number of medals won by the country at all games
+              // Number of medals won by the country at all games
               this.totalMedalCount = olympic.participations.reduce(
                 (acc, participation) => acc + participation.medalsCount,
                 0
               );
 
-              // number of athletes at all games
+              // Number of athletes at all games
               this.totalAthleteNumber = olympic.participations.reduce(
                 (acc, participation) => acc + participation.athleteCount,
                 0
               );
-              // add participations to chart data in the expected structure of ngx-line-chart
+              // Add participations to chart data in the expected structure of ngx-line-chart
               this.graphDataChart = [
                 {
                   name: olympic.country,

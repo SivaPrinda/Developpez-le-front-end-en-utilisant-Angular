@@ -13,23 +13,33 @@ export class OlympicService {
 
   constructor(private http: HttpClient) {}
 
+  // Load the initial data
   loadInitialData() {
     return this.http.get<Olympic[]>(this.olympicUrl).pipe(
       tap((value) => this.olympics$.next(value)),
       catchError((error, caught) => {
-        // TODO: improve error handling
         console.error(error);
-        // can be useful to end loading state and let the user know something went wrong
         this.olympics$.next([]);
         return caught;
       })
     );
   }
 
+  /**
+   * Returns the observable of all the olympics
+   *
+   * @returns The observable with all the olympics
+   */
   getOlympics() {
     return this.olympics$.asObservable();
   }
 
+  /**
+   * Returns the observable of a chosen country
+   *
+   * @param country - The chosen country
+   * @returns The observable of that country
+   */
   getOlympicByCountry(country: string) {
     // filter countries on specified country in argument
     return this.getOlympics().pipe(

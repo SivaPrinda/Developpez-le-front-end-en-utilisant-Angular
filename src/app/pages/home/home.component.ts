@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription, of } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { Router } from '@angular/router';
@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.olympicsSubscription = this.olympicService
       .getOlympics()
       .subscribe((value: Array<Olympic>) => {
-        //preparation for the data of the pie chart
+        // Data preparation for the pie chart
         this.data = value.map((olympic) => ({
           name: olympic.country,
           value: this.olympicService.countMedals(olympic),
         }));
-        //Calculate the number of JOs
+        // Calculate the number of JOs
         value.forEach((olympic) => {
           olympic.participations.forEach((participation) => {
             this.josNumber.add(participation.id);
@@ -39,8 +39,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.olympicsSubscription?.unsubscribe();
   }
 
+  // Navigate to the country selected from the chart
   onSelect(event: any): void {
     this.router.navigateByUrl(`/detail/${event.name}`);
-
   }
 }
