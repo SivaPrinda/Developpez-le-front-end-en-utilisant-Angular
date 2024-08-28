@@ -1,131 +1,105 @@
+/* Main container for content */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 calc(50vw - 400px);
+  display: flex; /* Uses Flexbox for layout */
+  flex-direction: column; /* Aligns elements in a column */
+  align-items: center; /* Centers the elements horizontally */
+  padding: 0 calc(50vw - 400px); /* Adds dynamic padding to center the content with a maximum width of 800px */
 }
 
+/* Styling for h1 headings */
 h1 {
-  background-color: #418791;
-  color: white !important;
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-size: 1.5em;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  display: inline-block;
-  margin-top: 20px;
+  background-color: #418791; /* Background color for the heading */
+  color: white !important; /* Text color set to white, with !important to override other styles */
+  padding: 10px 20px; /* Padding around the text */
+  border-radius: 15px; /* Rounded corners */
+  font-size: 1.5rem; /* Larger font size */
+  font-family: Arial, sans-serif; /* Font set to Arial with a sans-serif fallback */
+  text-align: center; /* Centers the text */
+  display: inline-block; /* Displays as an inline-block element */
+  margin-top: 20px; /* Adds space above the heading */
 }
+
+/* Container for titles */
 .title-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex; /* Uses Flexbox for layout */
+  justify-content: center; /* Centers child elements horizontally */
+  flex-wrap: wrap; /* Allows child elements to wrap if needed */
 }
+
+/* Container for statistics */
 .stats-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.title-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.stats-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  height: min(100px, 50%);
-}
-
-.stat-box {
-  border: 2px solid #418791;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #ffffff;
-  flex: 1;
-  min-width: 150px;
-  max-width: 200px;
-}
-
-.stat-title {
-  display: block;
-  font-size: 1em;
-  color: #6c757d;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.stat-value {
-  display: block;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #000000;
-  text-align: center;
-}
-
-.chart-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.chart-wrapper {
-  height: 400px;
+  display: flex; /* Uses Flexbox for layout */
+  justify-content: center; /* Centers child elements horizontally */
+  flex-wrap: wrap; /* Allows child elements to wrap if needed */
+  gap: 0.75rem; /* Space between child elements */
+  height: min(
+    100px,
+    50%
+  ); /* Limits height to 100px or 50% of the parent height, whichever is smaller */
   width: min(800px, 100%);
+  padding-bottom: 0.5rem;
 }
 
+/* Box for each individual statistic */
+.stat-box {
+  border: 2px solid #418791; /* Border with a specified color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 0.4rem; /* Internal spacing */
+  background-color: #ffffff; /* White background */
+  flex: 1; /* Allows the element to grow to fill available space */
+  width: min(
+    5rem,
+    100%
+  ); /* Maximum width of 5rem or 100% of the parent width, whichever is smaller */
+}
+
+/* Style for the title of each statistic */
+.stat-title {
+  display: block; /* Displays as a block element */
+  font-size: 1rem; /* Standard font size */
+  color: #6c757d; /* Grey text color */
+  margin-bottom: 10px; /* Space below the title */
+  text-align: center; /* Centers the text */
+}
+
+/* Style for the value of each statistic */
+.stat-value {
+  display: block; /* Displays as a block element */
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  color: #000000; /* Black text color */
+  text-align: center; /* Centers the text */
+}
+
+/* Wrapper for charts */
+.chart-wrapper {
+  height: 24rem;
+  width: min(
+    800px,
+    100%
+  ); /* Maximum width of 800px or 100% of the parent width, whichever is smaller */
+}
+
+/* Container for buttons */
 .button-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
+  display: flex; /* Uses Flexbox for layout */
+  justify-content: center; /* Centers the buttons */
+  margin: 20px 0; /* Margin above and below the container */
 }
 
+/* Style for the return button */
 .retour-button {
-  background-color: #418791;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #418791; /* Background color for the button */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 0.5rem; /* Rounded corners */
+  padding: 0.5rem 1.25rem; /* Internal spacing */
+  font-size: 1rem; /* Standard font size */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
 }
 
-ngx-charts-pie-chart svg {
-  width: 100% !important;
-  height: auto !important;
-}
-
+/* Style for the ngx-chart tooltip */
 .ngx-charts-tooltip-content {
-  background-color: #418791 !important;
-  color: white !important;
-}
-
-/* Media queries for additional responsiveness */
-@media (max-width: 767.98px) {
-  .stats-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .stat-box {
-    margin-bottom: 15px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .stat-box {
-    margin-bottom: 20px;
-  }
-}
-
-@media (min-width: 992px) {
-  .stat-box {
-    margin-bottom: 30px;
-  }
+  background-color: #418791 !important; /* Backgroung color of the tooltip */
+  color: white !important; /* White text color */
 }
