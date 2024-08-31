@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, map } from 'rxjs';
+import { Subscription, catchError, map } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -12,7 +13,8 @@ export class DetailComponent implements OnInit, OnDestroy {
   private olympicsSubscription: Subscription | undefined;
   constructor(
     private olympicService: OlympicService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   olympicCountry!: string;
@@ -54,10 +56,15 @@ export class DetailComponent implements OnInit, OnDestroy {
                   })),
                 },
               ];
+            } else {
+              this.router.navigateByUrl('error');
+              return;
             }
           })
         )
         .subscribe();
+    } else {
+      this.router.navigateByUrl('error');
     }
   }
 
